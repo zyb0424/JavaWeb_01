@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="mysql.properties"></properties>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/zyb/mapper/UserName.xml"/>
+    </mappers>
+
+    <!-- <mapper resource="com/bigdata/mapper/UserMapper.xml"/> -->
+    <!-- 使用资源的绝对路径<mapper url=""/> -->
+    <!--
+    Mapper接口的全类名
+    要求：Mapper接口的名称与映射文件名称一致
+    必须在同一个目录下（接口）
+    <mapper class="com.bigdata.mapper.UserMapper"/>
+    -->
+    <!-- 加载某个包下的映射文件 （推荐）
+    要求：Mapper接口的名称与映射文件名称一致必须在同一个目录下（接口）
+    <package name="com.bigdata.mapper"/>-->
+</configuration>
